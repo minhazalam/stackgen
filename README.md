@@ -43,7 +43,9 @@ pip install stackgen-cli
 
 ## 🚀 Quickstart
 
+```bash
 stackgen init my-project
+```
 
 ---
 
