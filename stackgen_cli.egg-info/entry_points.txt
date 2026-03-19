@@ -1,0 +1,2 @@
+[console_scripts]
+stackgen = stackgen.cli.main:app

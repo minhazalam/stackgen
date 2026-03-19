@@ -1,0 +1,205 @@
+Metadata-Version: 2.4
+Name: stackgen-cli
+Version: 0.1.7
+Summary: CLI tool to bootstrap data engineering projects (Spark, Kafka, Airflow scaffolding)
+Author-email: Minhaz Alam <minhazalam365@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2026 Minhaz Alam
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+Project-URL: Homepage, https://github.com/minhazalam/stackgen
+Project-URL: Repository, https://github.com/minhazalam/stackgen
+Keywords: data-engineering,cli,spark,kafka,airflow,pipeline,scaffolding
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: typer>=0.9.0
+Requires-Dist: questionary>=2.0.0
+Requires-Dist: jinja2>=3.0.0
+Dynamic: license-file
+
+# 🚀 Stackgen CLI
+
+**Stackgen** is a developer-first CLI tool to **bootstrap production-ready data engineering projects** in seconds.
+
+Build batch, streaming, or full data pipelines with a single command.
+
+---
+
+## ✨ Features
+
+* ⚡ Generate complete data engineering project scaffolds
+* 🧠 Supports **Batch, Streaming, and Full pipelines**
+* 🐳 Built-in **Docker-based infrastructure setup**
+* 🔄 Includes **Spark, Kafka, Airflow integrations**
+* 🎯 Interactive CLI with clean UX
+* 🧩 Template-based architecture (Jinja2)
+
+---
+
+## 🧱 Supported Pipelines
+
+### 🟢 Batch Pipeline
+
+* Apache Spark (batch jobs)
+* Apache Airflow (orchestration)
+
+### 🔴 Streaming Pipeline
+
+* Apache Kafka (event streaming)
+* Spark Structured Streaming
+
+### 🔥 Full Pipeline
+
+* Batch + Streaming combined
+
+---
+
+## 🚀 Quickstart
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/minhazalam/stackgen.git
+cd stackgen
+```
+
+---
+
+### 2. Setup Virtual Environment
+
+```bash
+python -m venv venv
+source venv/bin/activate
+```
+
+---
+
+### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### 4. Run CLI
+
+```bash
+python -m stackgen.cli.main init my-project
+```
+
+---
+
+### 5. Select Pipeline
+
+```text
+? Select pipeline type:
+❯ Batch Pipeline (Spark + Airflow)
+  Streaming Pipeline (Kafka + Spark)
+  Full Pipeline (Spark + Airflow + Kafka)
+```
+
+---
+
+### 6. Run Generated Project
+
+```bash
+cd my-project
+docker-compose up
+```
+
+---
+
+## 📁 Example Generated Structure
+
+```text
+my-project/
+├── airflow/           # DAGs
+├── spark/jobs/        # Batch & streaming jobs
+├── kafka/             # Kafka producer (if streaming)
+├── config/            # Config files
+├── docker-compose.yml
+└── requirements.txt
+```
+
+---
+
+## 🛠️ Tech Stack
+
+* **Python**
+* **Apache Spark**
+* **Apache Kafka**
+* **Apache Airflow**
+* **Docker**
+* **Jinja2 (templating)**
+
+---
+
+## 🧠 How It Works
+
+1. CLI collects user input (pipeline type)
+2. Generator builds project structure
+3. Jinja templates render files dynamically
+4. Docker setup enables instant execution
+
+---
+
+## 🛣️ Roadmap
+
+* [ ] Feature toggles (Kafka / Airflow selection)
+* [ ] Config-driven generation (YAML support)
+* [ ] Cloud integrations (S3, Snowflake, BigQuery)
+* [ ] Plugin system for custom stacks
+* [ ] CI/CD pipeline templates
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+Feel free to open issues or submit PRs.
+
+---
+
+## 📌 Vision
+
+Stackgen aims to become a **go-to CLI tool for data engineers** to quickly bootstrap scalable and production-ready data platforms.
+
+---
+
+## 👨‍💻 Author
+
+Minhaz Alam
+
+---
+
+## ⭐ Support
+
+If you like this project, give it a ⭐ on GitHub!
