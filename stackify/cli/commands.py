@@ -26,12 +26,12 @@ def init_project(project_name: str) -> None:
     typer.echo(f"\n🚀 Initializing project: {project_name}\n")
 
     mode = questionary.select(
-        "Select pipeline type:",
-        choices=[
-            "Batch",
-            "Streaming",
-            "Full",
-        ],
+    "Select pipeline type:",
+    choices=[
+        {"name": "Batch Pipeline (Spark + Airflow)", "value": "batch"},
+        {"name": "Streaming Pipeline (Kafka + Spark)", "value": "streaming"},
+        {"name": "Full Pipeline (Spark + Airflow + Kafka)", "value": "full"},
+    ]
     ).ask()
 
     if not mode:
