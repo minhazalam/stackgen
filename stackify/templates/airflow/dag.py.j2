@@ -1,0 +1,20 @@
+from airflow import DAG
+from airflow.operators.bash import BashOperator
+from datetime import datetime
+
+default_args = {
+    "owner": "stackify",
+    "start_date": datetime(2024, 1, 1),
+}
+
+with DAG(
+    dag_id="{{ project_name }}_pipeline",
+    default_args=default_args,
+    schedule_interval="@daily",
+    catchup=False,
+) as dag:
+
+    run_spark_job = BashOperator(
+        task_id="run_spark_job",
+        bash_command="python /opt/airflow/spark/jobs/batch_job.py",
+    )
