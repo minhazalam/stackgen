@@ -6,3 +6,5 @@ __pycache__/
 *.log
 utils/
 demo-project/
+stackgen.egg-info/
+dist/
