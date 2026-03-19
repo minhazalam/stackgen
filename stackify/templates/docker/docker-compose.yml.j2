@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
 
+{% if mode in ["streaming", "full"] %}
   zookeeper:
     image: bitnami/zookeeper:latest
     environment:
@@ -20,6 +21,7 @@ services:
       - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092
     ports:
       - "9092:9092"
+{% endif %}
 
   spark:
     image: bitnami/spark:latest
@@ -32,6 +34,7 @@ services:
     volumes:
       - ./spark/jobs:/jobs
 
+{% if mode in ["batch", "full"] %}
   airflow:
     image: apache/airflow:2.7.1
     container_name: {{ project_name }}_airflow
@@ -45,3 +48,4 @@ services:
     command: >
       bash -c "airflow db init &&
                airflow webserver & airflow scheduler"
+{% endif %}

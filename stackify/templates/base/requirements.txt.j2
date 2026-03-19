@@ -1,3 +1,9 @@
 pyspark
+
+{% if mode in ["streaming", "full"] %}
 kafka-python
+{% endif %}
+
+{% if mode in ["batch", "full"] %}
 apache-airflow
+{% endif %}

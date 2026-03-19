@@ -41,7 +41,7 @@ def create_project_structure(project_name: str, mode: str = "full") -> None:
 
     # Base setup
     create_base_files(base_path, project_name)
-    create_docker_compose(base_path, project_name)
+    create_docker_compose(base_path, project_name, mode)
 
     # Batch
     if mode in ["batch", "full"]:
@@ -82,8 +82,14 @@ def create_project_structure(project_name: str, mode: str = "full") -> None:
 #     # requirements.txt
 #     with open(os.path.join(base_path, "requirements.txt"), "w") as f:
 #         f.write("pyspark\n")
-def create_base_files(base_path: str, project_name: str) -> None:
-    context = {"project_name": project_name}
+def build_context(project_name: str, mode: str) -> dict:
+    return {
+        "project_name": project_name,
+        "mode": mode,
+    }
+
+def create_base_files(base_path: str, project_name: str, mode: str) -> None:
+    context = build_context(project_name, mode)
 
     render_template(
         "base/README.md.j2",
@@ -102,7 +108,9 @@ def create_base_files(base_path: str, project_name: str) -> None:
         os.path.join(base_path, "requirements.txt"),
         context,
     )
-def create_docker_compose(base_path: str, project_name: str) -> None:
+
+
+def create_docker_compose(base_path: str, project_name: str, mode: str) -> None:
     render_template(
         "docker/docker-compose.yml.j2",
         os.path.join(base_path, "docker-compose.yml"),
