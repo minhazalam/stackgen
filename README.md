@@ -35,43 +35,19 @@ Build batch, streaming, or full data pipelines with a single command.
 
 ---
 
+## ⚡ Install
+
+```bash
+pip install stackgen-cli
+```
+
 ## 🚀 Quickstart
 
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/minhazalam/stackgen.git
-cd stackgen
-```
+stackgen init my-project
 
 ---
 
-### 2. Setup Virtual Environment
-
-```bash
-python -m venv venv
-source venv/bin/activate
-```
-
----
-
-### 3. Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
-### 4. Run CLI
-
-```bash
-python -m stackgen.cli.main init my-project
-```
-
----
-
-### 5. Select Pipeline
+### CLI Experience
 
 ```text
 ? Select pipeline type:
@@ -82,7 +58,7 @@ python -m stackgen.cli.main init my-project
 
 ---
 
-### 6. Run Generated Project
+### Run Generated Project
 
 ```bash
 cd my-project
