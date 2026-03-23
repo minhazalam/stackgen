@@ -38,5 +38,5 @@ def render_template(template_path: str, output_path: str, context: dict) -> None
 
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
-    with open(output_path, "w") as f:
+    with open(output_path, "w", encoding="utf-8") as f:
         f.write(content)
