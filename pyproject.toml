@@ -10,7 +10,7 @@ include-package-data = true
 
 [project]
 name = "stackgen-cli"
-version = "0.1.7"
+version = "0.1.8"
 description = "CLI tool to bootstrap data engineering projects (Spark, Kafka, Airflow scaffolding)"
 readme = { file = "README.md", content-type = "text/markdown" }
 requires-python = ">=3.8"
