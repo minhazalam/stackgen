@@ -1,0 +1,15 @@
+#!/bin/sh
+set -eu
+
+subject=$(head -n 1 "$1")
+pattern='^de\((python|sql|dsa|pyspark|kafka|databricks|system-design)\): \[(prep|project)\] ([^[:space:]].*[^[:space:]]|[^[:space:]])$'
+if ! printf '%s\n' "$subject" | grep -Eq "$pattern"; then
+  cat >&2 <<'EOF'
+Invalid commit subject. Use:
+  de(<python|sql|dsa|pyspark|kafka|databricks|system-design>): [<prep|project>] <short description>
+Example:
+  de(sql): [prep] solve rolling revenue query
+See https://github.com/minhazalam/data-engineering-interview-prep/blob/main/docs/commit-message-policy.md for setup and details.
+EOF
+  exit 1
+fi
